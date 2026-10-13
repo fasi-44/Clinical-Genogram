@@ -1,5 +1,5 @@
 import { Component, Prop, Event, EventEmitter, h } from '@stencil/core';
-import { Gender, Person } from '../../types/nodes';
+import { ClinicalCondition, Gender, Person } from '../../types/nodes';
 import { Relationship, ConsanguinityRelation } from '../../types/relationships';
 import { RELATION_DEGREE } from '../../utils/consanguinity';
 import { orderedByAge } from '../../utils/birth-order';
@@ -15,6 +15,8 @@ export class GenogramPropertyPanel {
   @Prop() selectedRelationship: Relationship | null = null;
   /** Everyone on the board, to show names in the family controls */
   @Prop() allPersons: Person[] = [];
+  /** Conditions on the tree, suggested in the person form */
+  @Prop() availableConditions: ClinicalCondition[] = [];
   /** Couples the selected person can be given as parents (no cycles) */
   @Prop() parentOptions: Relationship[] = [];
   /** The couple the selected person is currently a child of */
@@ -178,6 +180,7 @@ export class GenogramPropertyPanel {
           {this.renderFamily(this.selectedPerson)}
           <person-form
             person={this.selectedPerson}
+            availableConditions={this.availableConditions}
             onPersonUpdate={this.handlePersonUpdate}
             onPersonDelete={this.handlePersonDelete}
           />

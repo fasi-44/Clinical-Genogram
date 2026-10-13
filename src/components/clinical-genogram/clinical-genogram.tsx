@@ -632,6 +632,7 @@ export class ClinicalGenogram {
               selectedPerson={this.selectedPerson}
               selectedRelationship={this.selectedRelationship}
               allPersons={this.genogramState.getPersons()}
+              availableConditions={this.knownConditions()}
               parentOptions={this.selectedPerson ? this.genogramState.getPossibleParentCouples(this.selectedPerson.id) : []}
               parentCouple={this.selectedPerson ? this.genogramState.getParentsOf(this.selectedPerson.id).relationship : null}
               onAddRelative={this.handleAddRelative}

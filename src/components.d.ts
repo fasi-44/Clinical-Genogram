@@ -145,6 +145,11 @@ export namespace Components {
          */
         "allPersons": Person1[];
         /**
+          * Conditions on the tree, suggested in the person form
+          * @default []
+         */
+        "availableConditions": ClinicalCondition1[];
+        /**
           * The couple the selected person is currently a child of
           * @default null
          */
@@ -209,6 +214,11 @@ export namespace Components {
         "conditions": ClinicalCondition1[];
     }
     interface PersonForm {
+        /**
+          * Conditions already on the tree; offered as suggestions and reused (same colour) when picked
+          * @default []
+         */
+        "availableConditions": ClinicalCondition1[];
         "person": Person1;
     }
     interface PersonNode {
@@ -657,6 +667,11 @@ declare namespace LocalJSX {
          */
         "allPersons"?: Person1[];
         /**
+          * Conditions on the tree, suggested in the person form
+          * @default []
+         */
+        "availableConditions"?: ClinicalCondition1[];
+        /**
           * Add a relative to the selected person
          */
         "onAddRelative"?: (event: GenogramPropertyPanelCustomEvent<{ personId: string; kind: 'parents' | 'sibling' | 'partner' | 'child'; gender?: Gender1 }>) => void;
@@ -753,6 +768,11 @@ declare namespace LocalJSX {
         "onConditionsChange"?: (event: IllnessTagSelectorCustomEvent<ClinicalCondition1[]>) => void;
     }
     interface PersonForm {
+        /**
+          * Conditions already on the tree; offered as suggestions and reused (same colour) when picked
+          * @default []
+         */
+        "availableConditions"?: ClinicalCondition1[];
         "onPersonDelete"?: (event: PersonFormCustomEvent<string>) => void;
         "onPersonUpdate"?: (event: PersonFormCustomEvent<Partial<Person1> & { id: string }>) => void;
         "person": Person1;

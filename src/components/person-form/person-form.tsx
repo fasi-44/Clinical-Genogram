@@ -1,5 +1,8 @@
 import { Component, Prop, State, Event, EventEmitter, Watch, h } from '@stencil/core';
 import { Person, Gender, PersonType, ClinicalCondition } from '../../types/nodes';
+import { COMMON_CONDITIONS, CONDITION_PALETTE } from '../../utils/constants';
+
+const CONDITION_LIST_ID = 'person-form-conditions';
 
 @Component({
   tag: 'person-form',
@@ -8,6 +11,8 @@ import { Person, Gender, PersonType, ClinicalCondition } from '../../types/nodes
 })
 export class PersonForm {
   @Prop() person!: Person;
+  /** Conditions already on the tree; offered as suggestions and reused (same colour) when picked */
+  @Prop() availableConditions: ClinicalCondition[] = [];
 
   @Event() personUpdate!: EventEmitter<Partial<Person> & { id: string }>;
   @Event() personDelete!: EventEmitter<string>;
@@ -15,7 +20,9 @@ export class PersonForm {
   @State() draft: Partial<Person> = {};
   @State() dirty: boolean = false;
   @State() newConditionName: string = '';
-  @State() newConditionColor: string = '#2196f3';
+  @State() newConditionColor: string = CONDITION_PALETTE[0];
+  /** The colour was picked by hand, so typing a name doesn't change it */
+  @State() colorPicked: boolean = false;
 
   @Watch('person')
   handlePersonChange() {
@@ -62,16 +69,55 @@ export class PersonForm {
     this.updateDraft('conditions', updated);
   };
 
+  /** A condition already on the tree with this name (case-insensitive) */
+  private knownCondition(name: string): ClinicalCondition | undefined {
+    const key = name.trim().toLowerCase();
+    return key ? this.availableConditions.find(c => c.name.trim().toLowerCase() === key) : undefined;
+  }
+
+  /** Suggestions: conditions on the tree, then common ones, minus those this person already has */
+  private conditionSuggestions(): string[] {
+    const have = new Set(this.getConditions().map(c => c.name.trim().toLowerCase()));
+    const names = new Map<string, string>();
+    for (const n of [...this.availableConditions.map(c => c.name), ...COMMON_CONDITIONS]) {
+      const key = n.trim().toLowerCase();
+      if (key && !have.has(key) && !names.has(key)) names.set(key, n.trim());
+    }
+    return [...names.values()];
+  }
+
+  /** First palette colour not yet used on the tree or by this person */
+  private nextFreeColor(): string {
+    const used = new Set([...this.availableConditions, ...this.getConditions()].map(c => c.color.toLowerCase()));
+    return CONDITION_PALETTE.find(c => !used.has(c.toLowerCase())) ?? CONDITION_PALETTE[0];
+  }
+
+  private handleConditionNameInput = (value: string) => {
+    this.newConditionName = value;
+    // A condition already on the tree keeps its colour; a new one gets a free colour
+    const known = this.knownCondition(value);
+    if (known) this.newConditionColor = known.color;
+    else if (!this.colorPicked) this.newConditionColor = this.nextFreeColor();
+  };
+
   private handleCreateCondition = () => {
     const name = this.newConditionName.trim();
     if (!name) return;
 
     const existing = this.getConditions();
-    const newCondition: ClinicalCondition = {
-      id: `condition-${Date.now()}-${Math.random().toString(36).substring(2, 9)}`,
-      name,
-      color: this.newConditionColor,
-    };
+    if (existing.some(c => c.name.trim().toLowerCase() === name.toLowerCase())) {
+      this.newConditionName = '';
+      return;
+    }
+    // Picking a condition already on the tree reuses it, so the legend shows it once
+    const known = this.knownCondition(name);
+    const newCondition: ClinicalCondition = known
+      ? { id: known.id, name: known.name, color: this.newConditionColor, ...(known.icon ? { icon: known.icon } : {}) }
+      : {
+          id: `condition-${Date.now()}-${Math.random().toString(36).substring(2, 9)}`,
+          name,
+          color: this.newConditionColor,
+        };
     // Conditions are only drawn when they have a quarter; take the first free one
     const used = new Set(existing.map(c => c.quadrant));
     const free = ([1, 2, 3, 4] as const).find(q => !used.has(q));
@@ -80,7 +126,8 @@ export class PersonForm {
     const updated = [...existing, newCondition];
     this.updateDraft('conditions', updated);
     this.newConditionName = '';
-    this.newConditionColor = '#2196f3';
+    this.colorPicked = false;
+    this.newConditionColor = this.nextFreeColor();
   };
 
   private getContrastColor(hexColor: string): string {
@@ -261,15 +308,28 @@ export class PersonForm {
             <input
               class="person-form__input person-form__input--sm"
               type="text"
-              placeholder="Condition name"
+              list={CONDITION_LIST_ID}
+              placeholder="Pick or type…"
               value={this.newConditionName}
-              onInput={(e: Event) => { this.newConditionName = (e.target as HTMLInputElement).value; }}
+              onInput={(e: Event) => this.handleConditionNameInput((e.target as HTMLInputElement).value)}
+              onKeyDown={(e: KeyboardEvent) => {
+                if (e.key === 'Enter') {
+                  e.preventDefault();
+                  this.handleCreateCondition();
+                }
+              }}
             />
+            <datalist id={CONDITION_LIST_ID}>
+              {this.conditionSuggestions().map(n => <option value={n} />)}
+            </datalist>
             <input
               class="person-form__color-picker"
               type="color"
               value={this.newConditionColor}
-              onInput={(e: Event) => { this.newConditionColor = (e.target as HTMLInputElement).value; }}
+              onInput={(e: Event) => {
+                this.newConditionColor = (e.target as HTMLInputElement).value;
+                this.colorPicked = true;
+              }}
               title="Pick a color"
             />
             <button

@@ -23,6 +23,7 @@
 - "Consanguinity" sample family (`demo/sample-data/consanguinity-family.json`, button on the dev and vanilla demo pages): five generations with uncle–niece, double first cousins, first cousins, first cousins once removed, second cousins, half first cousins and a suspected relationship
 
 ### Changed
+- Side panel conditions: the box now suggests the conditions already on the tree plus the common list (same as the questionnaire). Picking one already on the tree reuses its colour and identity, so the legend shows it once; a new one gets an unused colour. Enter adds it
 - Consanguinity sample: Simon Walsh (55) now listed before his younger sister Lucy (53)
 - Toolbar: Templates and Generate sit together in the top-right corner. The Link mode hint ("Click two people on the board to link them") floats just below the toolbar, so it no longer pushes buttons onto a second line
 - Questionnaire tabs say whose relatives they cover: a small "Patient's" (or the patient's first name once entered, e.g. "Andrew's") above Parents, Siblings, Grandparents, Partners & children, and Aunts, uncles & cousins

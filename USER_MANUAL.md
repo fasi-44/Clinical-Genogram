@@ -446,10 +446,11 @@ A condition that matches none of these shows its first letter instead (for examp
 To add clinical conditions to a person:
 
 1. Select the person by clicking on their symbol on the canvas.
-2. In the Property Panel, scroll down to the **Clinical Conditions** section (located below the main person form).
-3. You have two options:
-   - **Add an existing condition**: If pre-defined conditions are available, click the **"Add Existing Condition"** button. A dropdown list appears showing all available conditions not yet assigned to this person. Click a condition to add it.
-   - **Create a new condition**: Use the **"Create New"** section at the bottom. Enter a condition name in the text field, pick a color using the color picker, and click **Add**.
+2. In the Property Panel, go to the **Conditions** section, below the person's details.
+3. Click in the condition box. A list appears with the conditions already on the tree, followed by common ones (heart disease, hypertension, stroke, type 2 diabetes, cancer, depression, anxiety, dementia, asthma and others), the same list the **Generate** questionnaire offers. Pick one, or type any other name.
+   - A condition already on the tree keeps its colour automatically, so it appears once in the legend and matches everyone else who has it.
+   - A new condition gets a colour not yet used on the tree. Use the colour picker next to the box to choose a different one.
+4. Click **+ Add** (or press **Enter**), then **Save Changes**.
 
 ### 6.3 Removing Conditions
 
