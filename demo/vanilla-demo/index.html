@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clinical Genogram - Demo</title>
+  <script type="module" src="../../dist/clinical-genogram/clinical-genogram.esm.js"></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; height: 100vh; display: flex; flex-direction: column; }
+    header { background: #1a237e; color: white; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; }
+    header h1 { font-size: 18px; font-weight: 500; }
+    .demo-controls { display: flex; gap: 8px; }
+    .demo-controls button { padding: 6px 12px; border: 1px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.1); color: white; border-radius: 4px; cursor: pointer; font-size: 13px; }
+    .demo-controls button:hover { background: rgba(255,255,255,0.2); }
+    .demo-controls button.active { background: rgba(255,255,255,0.3); }
+    main { flex: 1; }
+    clinical-genogram { width: 100%; height: 100%; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Clinical Genogram Demo</h1>
+    <div class="demo-controls">
+      <button onclick="loadSample('three-generation')">3 Generation Family</button>
+      <button onclick="loadSample('clinical')">Clinical Case Study</button>
+      <button onclick="loadSample('consanguinity')">Consanguinity</button>
+      <button onclick="clearGenogram()">New/Clear</button>
+    </div>
+  </header>
+  <main>
+    <clinical-genogram id="genogram"></clinical-genogram>
+  </main>
+
+  <script>
+    const genogram = document.getElementById('genogram');
+
+    // Listen for changes
+    genogram.addEventListener('genogramChange', (e) => {
+      console.log('Genogram changed:', e.detail);
+    });
+    genogram.addEventListener('nodeClick', (e) => {
+      console.log('Node clicked:', e.detail);
+    });
+    genogram.addEventListener('nodeDoubleClick', (e) => {
+      console.log('Node double-clicked:', e.detail);
+    });
+
+    async function loadSample(name) {
+      const urls = {
+        'three-generation': '../sample-data/three-generation-family.json',
+        'clinical': '../sample-data/clinical-case-study.json',
+        'consanguinity': '../sample-data/consanguinity-family.json',
+      };
+      try {
+        const resp = await fetch(urls[name]);
+        const data = await resp.json();
+        await genogram.setData(data);
+        console.log('Loaded sample:', name);
+      } catch (err) {
+        console.error('Failed to load sample:', err);
+      }
+    }
+
+    async function clearGenogram() {
+      await genogram.setData({ version: '1.0.0', persons: [], relationships: [] });
+    }
+
+    // Load default sample
+    loadSample('three-generation');
+  </script>
+</body>
+</html>

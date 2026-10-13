@@ -1,0 +1,268 @@
+{
+  "version": "1.0.0",
+  "persons": [
+    {
+      "id": "g0-father",
+      "fullName": "Richard Adams",
+      "gender": "male",
+      "type": "standard",
+      "dateOfBirth": "1950-02-14",
+      "dateOfDeath": "2020-08-03",
+      "isDeceased": true,
+      "isProband": false,
+      "generation": 0,
+      "conditions": [
+        {
+          "id": "cond-ra-cancer",
+          "name": "Lung Cancer",
+          "color": "#e53935",
+          "description": "Diagnosed at age 65, cause of death",
+          "quadrant": 1
+        },
+        {
+          "id": "cond-ra-heart",
+          "name": "Heart Disease",
+          "color": "#ff9800",
+          "description": "Hypertension from age 50",
+          "quadrant": 3
+        }
+      ],
+      "notes": "Deceased. Heavy smoker for 40 years."
+    },
+    {
+      "id": "g0-mother",
+      "fullName": "Patricia Adams",
+      "gender": "female",
+      "type": "standard",
+      "dateOfBirth": "1953-06-20",
+      "isDeceased": false,
+      "isProband": false,
+      "generation": 0,
+      "conditions": [
+        {
+          "id": "cond-pa-diabetes",
+          "name": "Type 2 Diabetes",
+          "color": "#1e88e5",
+          "description": "Diagnosed at age 55",
+          "quadrant": 2
+        },
+        {
+          "id": "cond-pa-mental",
+          "name": "Anxiety Disorder",
+          "color": "#8e24aa",
+          "description": "Generalized anxiety, ongoing treatment",
+          "quadrant": 4
+        }
+      ]
+    },
+    {
+      "id": "g0-uncle",
+      "fullName": "Thomas Adams",
+      "gender": "male",
+      "type": "standard",
+      "dateOfBirth": "1955-10-30",
+      "isDeceased": false,
+      "isProband": false,
+      "generation": 0,
+      "conditions": [
+        {
+          "id": "cond-ta-cancer",
+          "name": "Colon Cancer",
+          "color": "#e53935",
+          "description": "Diagnosed at age 60, in remission",
+          "quadrant": 1
+        }
+      ],
+      "notes": "Brother of Richard"
+    },
+    {
+      "id": "g0-uncle-wife",
+      "fullName": "Margaret Adams",
+      "gender": "female",
+      "type": "standard",
+      "dateOfBirth": "1957-04-08",
+      "isDeceased": false,
+      "isProband": false,
+      "generation": 0,
+      "conditions": []
+    },
+    {
+      "id": "g1-proband",
+      "fullName": "Steven Adams",
+      "gender": "male",
+      "type": "standard",
+      "dateOfBirth": "1980-09-12",
+      "isDeceased": false,
+      "isProband": true,
+      "generation": 1,
+      "conditions": [
+        {
+          "id": "cond-sa-diabetes",
+          "name": "Type 2 Diabetes",
+          "color": "#1e88e5",
+          "description": "Early onset, diagnosed at age 38",
+          "quadrant": 2
+        },
+        {
+          "id": "cond-sa-mental",
+          "name": "Depression",
+          "color": "#8e24aa",
+          "description": "Major depressive disorder, managed with medication",
+          "quadrant": 4
+        }
+      ]
+    },
+    {
+      "id": "g1-wife",
+      "fullName": "Rachel Adams",
+      "gender": "female",
+      "type": "standard",
+      "dateOfBirth": "1983-01-25",
+      "isDeceased": false,
+      "isProband": false,
+      "generation": 1,
+      "conditions": []
+    },
+    {
+      "id": "g1-sister",
+      "fullName": "Laura Adams",
+      "gender": "female",
+      "type": "standard",
+      "dateOfBirth": "1982-12-05",
+      "isDeceased": false,
+      "isProband": false,
+      "generation": 1,
+      "conditions": [
+        {
+          "id": "cond-la-cancer",
+          "name": "Breast Cancer",
+          "color": "#e53935",
+          "description": "Diagnosed at age 39, BRCA1 positive",
+          "quadrant": 1
+        },
+        {
+          "id": "cond-la-mental",
+          "name": "Anxiety Disorder",
+          "color": "#8e24aa",
+          "description": "Panic disorder",
+          "quadrant": 4
+        }
+      ]
+    },
+    {
+      "id": "g1-cousin",
+      "fullName": "Daniel Adams",
+      "gender": "male",
+      "type": "standard",
+      "dateOfBirth": "1984-07-19",
+      "isDeceased": false,
+      "isProband": false,
+      "generation": 1,
+      "conditions": [
+        {
+          "id": "cond-da-heart",
+          "name": "Heart Disease",
+          "color": "#ff9800",
+          "description": "Early onset hypertension at age 35",
+          "quadrant": 3
+        }
+      ],
+      "notes": "Son of Thomas and Margaret"
+    },
+    {
+      "id": "g1-miscarriage",
+      "gender": "unknown",
+      "type": "miscarriage",
+      "isDeceased": true,
+      "isProband": false,
+      "generation": 1,
+      "conditions": [],
+      "notes": "Miscarriage at 14 weeks, first pregnancy of Richard and Patricia"
+    },
+    {
+      "id": "g2-child1",
+      "fullName": "Ethan Adams",
+      "gender": "male",
+      "type": "standard",
+      "dateOfBirth": "2010-03-17",
+      "isDeceased": false,
+      "isProband": false,
+      "generation": 2,
+      "conditions": [
+        {
+          "id": "cond-ea-diabetes",
+          "name": "Type 1 Diabetes",
+          "color": "#1e88e5",
+          "description": "Juvenile onset, diagnosed at age 8",
+          "quadrant": 2
+        }
+      ]
+    },
+    {
+      "id": "g2-child2",
+      "fullName": "Sophia Adams",
+      "gender": "female",
+      "type": "standard",
+      "dateOfBirth": "2013-11-02",
+      "isDeceased": false,
+      "isProband": false,
+      "generation": 2,
+      "conditions": []
+    },
+    {
+      "id": "g2-pregnancy",
+      "gender": "unknown",
+      "type": "pregnancy",
+      "isDeceased": false,
+      "isProband": false,
+      "generation": 2,
+      "conditions": [],
+      "notes": "Expected due date: 2025-07-15"
+    }
+  ],
+  "relationships": [
+    {
+      "id": "rel-parents",
+      "type": "marriage",
+      "person1Id": "g0-father",
+      "person2Id": "g0-mother",
+      "childrenIds": [
+        "g1-miscarriage",
+        "g1-proband",
+        "g1-sister"
+      ],
+      "consanguinity": "none",
+      "startDate": "1978-06-10"
+    },
+    {
+      "id": "rel-uncle",
+      "type": "marriage",
+      "person1Id": "g0-uncle",
+      "person2Id": "g0-uncle-wife",
+      "childrenIds": [
+        "g1-cousin"
+      ],
+      "consanguinity": "none",
+      "startDate": "1982-09-20"
+    },
+    {
+      "id": "rel-proband-wife",
+      "type": "marriage",
+      "person1Id": "g1-proband",
+      "person2Id": "g1-wife",
+      "childrenIds": [
+        "g2-child1",
+        "g2-child2",
+        "g2-pregnancy"
+      ],
+      "consanguinity": "none",
+      "startDate": "2008-04-15"
+    }
+  ],
+  "metadata": {
+    "title": "Clinical Case Study",
+    "description": "Multi-generational clinical case study demonstrating cancer (red, Q1), diabetes (blue, Q2), heart disease (orange, Q3), and mental health conditions (purple, Q4). Includes deceased individual, miscarriage, and current pregnancy.",
+    "createdAt": "2025-01-15T10:00:00Z",
+    "author": "Clinical Genogram Demo"
+  }
+}

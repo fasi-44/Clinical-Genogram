@@ -1,0 +1,270 @@
+.genogram-toolbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 6px 14px;
+  background: #fff;
+  border-bottom: 1px solid #f0f0f0;
+  gap: 6px;
+  flex-wrap: wrap;
+  min-height: 46px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.toolbar-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 3px;
+}
+
+.toolbar-group--end {
+  margin-left: auto;
+  gap: 6px;
+}
+
+.toolbar-group--highlight {
+  background: #f0f9ff;
+  border: 1px solid #bae6fd;
+  border-radius: 8px;
+  padding: 3px 6px;
+}
+
+.toolbar-label {
+  font-size: 10px;
+  color: #94a3b8;
+  margin-right: 4px;
+  white-space: nowrap;
+  user-select: none;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+
+.toolbar-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  height: 32px;
+  padding: 0 10px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: transparent;
+  color: #475569;
+  font-size: 12px;
+  font-family: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.12s ease;
+  white-space: nowrap;
+  user-select: none;
+  line-height: 1;
+}
+
+.toolbar-btn:hover:not(:disabled) {
+  background: #f1f5f9;
+  border-color: #e2e8f0;
+  color: #1e293b;
+}
+
+.toolbar-btn:active:not(:disabled) {
+  background: #e2e8f0;
+  transform: scale(0.97);
+}
+
+.toolbar-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.toolbar-btn svg {
+  display: block;
+  flex-shrink: 0;
+}
+
+/* Icon-only buttons */
+.toolbar-btn--icon {
+  width: 32px;
+  padding: 0;
+}
+
+.toolbar-separator {
+  width: 1px;
+  height: 20px;
+  background: #e5e7eb;
+  margin: 0 6px;
+  flex-shrink: 0;
+}
+
+.toolbar-zoom-level {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  height: 32px;
+  font-size: 11px;
+  color: #64748b;
+  text-align: center;
+  user-select: none;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.toolbar-btn--active {
+  background: #eff6ff;
+  border-color: #93c5fd;
+  color: #2563eb;
+}
+
+.toolbar-btn--active:hover:not(:disabled) {
+  background: #dbeafe;
+  border-color: #60a5fa;
+}
+
+.toolbar-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #2563eb;
+  background: #eff6ff;
+  padding: 5px 14px;
+  border-radius: 20px;
+  border: 1px solid #bfdbfe;
+  /* Floats over the top of the canvas so it never moves the toolbar buttons */
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 15;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+  white-space: nowrap;
+  user-select: none;
+  font-weight: 500;
+  animation: status-pulse 2s ease-in-out infinite;
+}
+
+.toolbar-status__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #3b82f6;
+  animation: dot-blink 1.2s ease-in-out infinite;
+}
+
+@keyframes dot-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+@keyframes status-pulse {
+  0%, 100% { border-color: #bfdbfe; }
+  50% { border-color: #93c5fd; }
+}
+
+.toolbar-btn--primary {
+  background: #eff6ff;
+  border-color: #bfdbfe;
+  color: #1d4ed8;
+}
+
+.toolbar-btn--primary:hover:not(:disabled) {
+  background: #dbeafe;
+  border-color: #93c5fd;
+  color: #1e40af;
+}
+
+/* Templates dropdown */
+.toolbar-templates {
+  position: relative;
+}
+
+.toolbar-templates__menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  z-index: 20;
+  width: 290px;
+  padding: 6px;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.14);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.toolbar-templates__gender {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 6px 8px;
+  margin-bottom: 2px;
+  border-bottom: 1px solid #f1f5f9;
+  font-size: 11px;
+  color: #64748b;
+}
+
+.toolbar-templates__gender > span {
+  margin-right: auto;
+}
+
+.toolbar-templates__gender-btn {
+  padding: 4px 10px;
+  border: 1px solid #e2e8f0;
+  border-radius: 999px;
+  background: #fff;
+  color: #475569;
+  font: inherit;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.toolbar-templates__gender-btn--on {
+  background: #eff6ff;
+  border-color: #93c5fd;
+  color: #1d4ed8;
+  font-weight: 600;
+}
+
+.toolbar-templates__item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  padding: 8px 10px;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.toolbar-templates__item:hover,
+.toolbar-templates__item:focus-visible {
+  background: #f1f5f9;
+  outline: none;
+}
+
+.toolbar-templates__name {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.toolbar-templates__desc {
+  font-size: 11px;
+  color: #64748b;
+}
+
+.toolbar-templates__note {
+  margin: 4px 0 0;
+  padding: 6px 10px 2px;
+  border-top: 1px solid #f1f5f9;
+  font-size: 11px;
+  color: #94a3b8;
+}

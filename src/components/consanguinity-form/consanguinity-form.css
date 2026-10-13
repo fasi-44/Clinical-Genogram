@@ -1,0 +1,70 @@
+.consanguinity-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px 0;
+  font-family: var(--genogram-font-family);
+}
+
+.consanguinity-form__label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--genogram-text);
+}
+
+.consanguinity-form__options {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.consanguinity-form__option {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 8px 10px;
+  border: 1px solid var(--genogram-border);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.consanguinity-form__option:hover {
+  border-color: var(--genogram-primary);
+}
+
+.consanguinity-form__option--selected {
+  border-color: var(--genogram-primary);
+  background-color: rgba(33, 150, 243, 0.05);
+}
+
+.consanguinity-form__radio {
+  margin-top: 2px;
+  flex-shrink: 0;
+  accent-color: var(--genogram-primary);
+  cursor: pointer;
+}
+
+.consanguinity-form__option-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.consanguinity-form__option-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--genogram-text);
+}
+
+.consanguinity-form__option-desc {
+  font-size: 11px;
+  color: #888888;
+  line-height: 1.3;
+}
+
+.consanguinity-form__legacy {
+  margin: 4px 0 6px;
+  font-size: 11px;
+  color: #92400e;
+}

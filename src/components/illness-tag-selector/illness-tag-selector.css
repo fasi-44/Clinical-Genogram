@@ -1,0 +1,186 @@
+.illness-tag-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px 0;
+  font-family: var(--genogram-font-family);
+}
+
+.illness-tag-selector__label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--genogram-text);
+}
+
+.illness-tag-selector__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.illness-tag-selector__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.illness-tag-selector__tag-name {
+  max-width: 140px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.illness-tag-selector__tag-remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.15);
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.illness-tag-selector__tag-remove:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.illness-tag-selector__dropdown-wrapper {
+  position: relative;
+}
+
+.illness-tag-selector__add-btn {
+  padding: 5px 10px;
+  border: 1px dashed var(--genogram-border);
+  border-radius: 4px;
+  background-color: transparent;
+  color: var(--genogram-primary);
+  font-size: 12px;
+  font-family: var(--genogram-font-family);
+  cursor: pointer;
+  transition: border-color 0.15s ease;
+}
+
+.illness-tag-selector__add-btn:hover {
+  border-color: var(--genogram-primary);
+}
+
+.illness-tag-selector__dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  margin: 4px 0 0;
+  padding: 4px 0;
+  list-style: none;
+  border: 1px solid var(--genogram-border);
+  border-radius: 4px;
+  background-color: var(--genogram-bg);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  max-height: 160px;
+  overflow-y: auto;
+}
+
+.illness-tag-selector__dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  font-size: 13px;
+  color: var(--genogram-text);
+  cursor: pointer;
+  transition: background-color 0.1s ease;
+}
+
+.illness-tag-selector__dropdown-item:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.illness-tag-selector__dropdown-swatch {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.illness-tag-selector__create {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-top: 8px;
+  border-top: 1px solid var(--genogram-border);
+}
+
+.illness-tag-selector__create-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--genogram-text);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.illness-tag-selector__create-row {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.illness-tag-selector__create-input {
+  flex: 1;
+  padding: 5px 8px;
+  border: 1px solid var(--genogram-border);
+  border-radius: 4px;
+  font-size: 12px;
+  font-family: var(--genogram-font-family);
+  color: var(--genogram-text);
+  background-color: var(--genogram-bg);
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+.illness-tag-selector__create-input:focus {
+  border-color: var(--genogram-primary);
+}
+
+.illness-tag-selector__create-color {
+  width: 30px;
+  height: 28px;
+  padding: 1px;
+  border: 1px solid var(--genogram-border);
+  border-radius: 4px;
+  background: none;
+  cursor: pointer;
+}
+
+.illness-tag-selector__create-btn {
+  padding: 5px 10px;
+  border: 1px solid var(--genogram-primary);
+  border-radius: 4px;
+  background-color: var(--genogram-primary);
+  color: #ffffff;
+  font-size: 12px;
+  font-family: var(--genogram-font-family);
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.illness-tag-selector__create-btn:hover {
+  opacity: 0.9;
+}
+
+.illness-tag-selector__create-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}

@@ -1,0 +1,221 @@
+{
+  "version": "1.0.0",
+  "persons": [
+    {
+      "id": "pa",
+      "fullName": "Alex Taylor",
+      "gender": "male",
+      "type": "standard",
+      "dateOfBirth": "1975-06-10",
+      "isDeceased": false,
+      "isProband": true,
+      "generation": 0,
+      "conditions": []
+    },
+    {
+      "id": "pb",
+      "fullName": "Beth Taylor",
+      "gender": "female",
+      "type": "standard",
+      "dateOfBirth": "1978-03-22",
+      "isDeceased": false,
+      "isProband": false,
+      "generation": 0,
+      "conditions": []
+    },
+    {
+      "id": "pc",
+      "fullName": "Carol Hayes",
+      "gender": "female",
+      "type": "standard",
+      "dateOfBirth": "1976-11-15",
+      "isDeceased": false,
+      "isProband": false,
+      "generation": 0,
+      "conditions": []
+    },
+    {
+      "id": "pd",
+      "fullName": "Derek Simmons",
+      "gender": "male",
+      "type": "standard",
+      "dateOfBirth": "1980-01-05",
+      "isDeceased": false,
+      "isProband": false,
+      "generation": 0,
+      "conditions": []
+    },
+    {
+      "id": "pe",
+      "fullName": "Elena Voss",
+      "gender": "female",
+      "type": "standard",
+      "dateOfBirth": "1982-07-19",
+      "isDeceased": false,
+      "isProband": false,
+      "generation": 0,
+      "conditions": []
+    },
+    {
+      "id": "pf",
+      "fullName": "Frank Ortiz",
+      "gender": "male",
+      "type": "standard",
+      "dateOfBirth": "1985-09-30",
+      "isDeceased": false,
+      "isProband": false,
+      "generation": 0,
+      "conditions": []
+    },
+    {
+      "id": "pg",
+      "fullName": "Grace Chen",
+      "gender": "female",
+      "type": "standard",
+      "dateOfBirth": "1987-04-12",
+      "isDeceased": false,
+      "isProband": false,
+      "generation": 0,
+      "conditions": []
+    },
+    {
+      "id": "ph",
+      "fullName": "Henry Park",
+      "gender": "male",
+      "type": "standard",
+      "dateOfBirth": "1970-12-01",
+      "isDeceased": false,
+      "isProband": false,
+      "generation": 0,
+      "conditions": []
+    },
+    {
+      "id": "pi",
+      "fullName": "Irene Novak",
+      "gender": "female",
+      "type": "standard",
+      "dateOfBirth": "1973-08-17",
+      "isDeceased": false,
+      "isProband": false,
+      "generation": 0,
+      "conditions": []
+    },
+    {
+      "id": "pj",
+      "fullName": "Jack Webb",
+      "gender": "male",
+      "type": "standard",
+      "dateOfBirth": "1969-05-25",
+      "isDeceased": false,
+      "isProband": false,
+      "generation": 0,
+      "conditions": []
+    },
+    {
+      "id": "pk",
+      "fullName": "Karen Webb",
+      "gender": "female",
+      "type": "standard",
+      "dateOfBirth": "1971-02-14",
+      "isDeceased": false,
+      "isProband": false,
+      "generation": 0,
+      "conditions": []
+    },
+    {
+      "id": "child-ab-1",
+      "fullName": "Nathan Taylor",
+      "gender": "male",
+      "type": "standard",
+      "dateOfBirth": "2005-10-08",
+      "isDeceased": false,
+      "isProband": false,
+      "generation": 1,
+      "conditions": []
+    },
+    {
+      "id": "child-ac-1",
+      "fullName": "Olivia Taylor",
+      "gender": "female",
+      "type": "standard",
+      "dateOfBirth": "2000-03-16",
+      "isDeceased": false,
+      "isProband": false,
+      "generation": 1,
+      "conditions": []
+    }
+  ],
+  "relationships": [
+    {
+      "id": "rel-marriage",
+      "type": "marriage",
+      "person1Id": "pa",
+      "person2Id": "pb",
+      "childrenIds": [
+        "child-ab-1"
+      ],
+      "consanguinity": "none",
+      "startDate": "2003-05-20",
+      "notes": "Current marriage"
+    },
+    {
+      "id": "rel-divorce",
+      "type": "divorce",
+      "person1Id": "pa",
+      "person2Id": "pc",
+      "childrenIds": [
+        "child-ac-1"
+      ],
+      "consanguinity": "none",
+      "startDate": "1998-09-10",
+      "endDate": "2002-04-01",
+      "notes": "Previous marriage, ended in divorce"
+    },
+    {
+      "id": "rel-cohabitation",
+      "type": "cohabitation",
+      "person1Id": "pd",
+      "person2Id": "pe",
+      "childrenIds": [],
+      "consanguinity": "none",
+      "startDate": "2015-01-01",
+      "notes": "Living together, unmarried"
+    },
+    {
+      "id": "rel-engagement",
+      "type": "engagement",
+      "person1Id": "pf",
+      "person2Id": "pg",
+      "childrenIds": [],
+      "consanguinity": "none",
+      "startDate": "2024-12-25",
+      "notes": "Recently engaged"
+    },
+    {
+      "id": "rel-love-affair",
+      "type": "love-affair",
+      "person1Id": "ph",
+      "person2Id": "pi",
+      "childrenIds": [],
+      "consanguinity": "none",
+      "notes": "Ongoing love affair"
+    },
+    {
+      "id": "rel-separation",
+      "type": "separation",
+      "person1Id": "pj",
+      "person2Id": "pk",
+      "childrenIds": [],
+      "consanguinity": "none",
+      "startDate": "1995-06-01",
+      "endDate": "2023-11-15",
+      "notes": "Married then separated"
+    }
+  ],
+  "metadata": {
+    "title": "Complex Relationships",
+    "description": "Showcase of various relationship types: marriage, divorce, cohabitation, engagement, love affair, and separation.",
+    "createdAt": "2025-01-15T10:00:00Z",
+    "author": "Clinical Genogram Demo"
+  }
+}

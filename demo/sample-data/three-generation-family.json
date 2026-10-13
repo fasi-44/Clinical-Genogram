@@ -1,0 +1,173 @@
+{
+  "version": "1.0.0",
+  "persons": [
+    {
+      "id": "gp-john",
+      "fullName": "John Miller",
+      "gender": "male",
+      "type": "standard",
+      "dateOfBirth": "1940-03-15",
+      "isDeceased": false,
+      "isProband": false,
+      "generation": -1,
+      "conditions": [
+        {
+          "id": "cond-john-hd",
+          "name": "Heart Disease",
+          "color": "#e53935",
+          "description": "Coronary artery disease, diagnosed age 62",
+          "quadrant": 1
+        }
+      ]
+    },
+    {
+      "id": "gp-mary",
+      "fullName": "Mary Miller",
+      "gender": "female",
+      "type": "standard",
+      "dateOfBirth": "1942-07-22",
+      "isDeceased": false,
+      "isProband": false,
+      "generation": -1,
+      "conditions": []
+    },
+    {
+      "id": "gp-robert",
+      "fullName": "Robert Clark",
+      "gender": "male",
+      "type": "standard",
+      "dateOfBirth": "1938-11-05",
+      "isDeceased": false,
+      "isProband": false,
+      "generation": -1,
+      "conditions": []
+    },
+    {
+      "id": "gp-linda",
+      "fullName": "Linda Clark",
+      "gender": "female",
+      "type": "standard",
+      "dateOfBirth": "1941-01-30",
+      "isDeceased": false,
+      "isProband": false,
+      "generation": -1,
+      "conditions": []
+    },
+    {
+      "id": "p-david",
+      "fullName": "David Miller",
+      "gender": "male",
+      "type": "standard",
+      "dateOfBirth": "1968-05-12",
+      "isDeceased": false,
+      "isProband": true,
+      "generation": 0,
+      "conditions": []
+    },
+    {
+      "id": "p-sarah",
+      "fullName": "Sarah Miller",
+      "gender": "female",
+      "type": "standard",
+      "dateOfBirth": "1970-09-18",
+      "isDeceased": false,
+      "isProband": false,
+      "generation": 0,
+      "conditions": [
+        {
+          "id": "cond-sarah-dep",
+          "name": "Depression",
+          "color": "#1e88e5",
+          "description": "Major depressive disorder, onset age 32",
+          "quadrant": 2
+        }
+      ]
+    },
+    {
+      "id": "p-michael",
+      "fullName": "Michael Miller",
+      "gender": "male",
+      "type": "standard",
+      "dateOfBirth": "1972-02-28",
+      "isDeceased": false,
+      "isProband": false,
+      "generation": 0,
+      "conditions": []
+    },
+    {
+      "id": "c-emma",
+      "fullName": "Emma Miller",
+      "gender": "female",
+      "type": "standard",
+      "dateOfBirth": "1995-04-10",
+      "isDeceased": false,
+      "isProband": false,
+      "generation": 1,
+      "conditions": []
+    },
+    {
+      "id": "c-james",
+      "fullName": "James Miller",
+      "gender": "male",
+      "type": "standard",
+      "dateOfBirth": "1998-08-25",
+      "isDeceased": false,
+      "isProband": false,
+      "generation": 1,
+      "conditions": []
+    },
+    {
+      "id": "c-lily",
+      "fullName": "Lily Miller",
+      "gender": "female",
+      "type": "adopted",
+      "dateOfBirth": "2001-12-03",
+      "isDeceased": false,
+      "isProband": false,
+      "generation": 1,
+      "conditions": []
+    }
+  ],
+  "relationships": [
+    {
+      "id": "rel-john-mary",
+      "type": "marriage",
+      "person1Id": "gp-john",
+      "person2Id": "gp-mary",
+      "childrenIds": [
+        "p-david",
+        "p-michael"
+      ],
+      "consanguinity": "none"
+    },
+    {
+      "id": "rel-robert-linda",
+      "type": "marriage",
+      "person1Id": "gp-robert",
+      "person2Id": "gp-linda",
+      "childrenIds": [
+        "p-sarah"
+      ],
+      "consanguinity": "none"
+    },
+    {
+      "id": "rel-david-sarah",
+      "type": "marriage",
+      "person1Id": "p-david",
+      "person2Id": "p-sarah",
+      "childrenIds": [
+        "c-emma",
+        "c-james",
+        "c-lily"
+      ],
+      "consanguinity": "none",
+      "startDate": "1993-06-14"
+    }
+  ],
+  "metadata": {
+    "title": "Three Generation Family",
+    "description": "Sample genogram showing a three-generation family with paternal and maternal lineages, including an adopted child and clinical conditions.",
+    "createdAt": "2025-01-15T10:00:00Z",
+    "author": "Clinical Genogram Demo"
+  }
+}

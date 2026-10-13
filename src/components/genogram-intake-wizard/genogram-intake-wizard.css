@@ -1,0 +1,636 @@
+genogram-intake-wizard {
+  position: absolute;
+  inset: 0;
+  z-index: 200;
+}
+
+.intake-wizard__overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  box-sizing: border-box;
+  background: rgba(15, 23, 42, 0.35);
+}
+
+.intake-wizard {
+  display: flex;
+  flex-direction: column;
+  /* A fixed size that doesn't change from step to step: wide enough for all
+     seven tabs, never smaller than its minimum (unless the screen is) */
+  width: min(1120px, 100%);
+  min-width: min(760px, 100%);
+  height: min(900px, 100%);
+  min-height: min(620px, 100%);
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.25);
+  font-family: var(--genogram-font-family, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
+  color: #1f2937;
+  overflow: hidden;
+  outline: none;
+}
+
+.intake-wizard__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px 10px;
+}
+
+.intake-wizard__title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.intake-wizard__close {
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: #64748b;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.intake-wizard__close:hover {
+  background: #f1f5f9;
+  color: #1e293b;
+}
+
+/* Step indicator */
+.intake-steps {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  padding: 0 18px 12px;
+  list-style: none;
+  border-bottom: 1px solid #f0f0f0;
+  overflow-x: auto;
+}
+
+.intake-steps__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px 5px 5px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: transparent;
+  color: #64748b;
+  font: inherit;
+  font-size: 12px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+/* Connector between steps; takes the spare width so the steps spread evenly */
+.intake-steps__sep {
+  flex: 1 1 12px;
+  min-width: 12px;
+  max-width: 64px;
+  height: 1px;
+  background: #e2e8f0;
+}
+
+.intake-steps__sep--done {
+  background: #93c5fd;
+}
+
+.intake-steps__label {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.2;
+  text-align: left;
+}
+
+/* Whose relatives the step covers ("Patient's", "Andrew's") */
+.intake-steps__owner {
+  max-width: 110px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 10px;
+  font-weight: 500;
+  color: #94a3b8;
+}
+
+.intake-steps__btn--active .intake-steps__owner {
+  color: #60a5fa;
+}
+
+.intake-steps__btn:hover {
+  background: #f1f5f9;
+}
+
+.intake-steps__num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #e2e8f0;
+  color: #475569;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.intake-steps__btn--done .intake-steps__num {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.intake-steps__btn--active {
+  border-color: #bfdbfe;
+  background: #eff6ff;
+  color: #1d4ed8;
+  font-weight: 600;
+}
+
+.intake-steps__btn--active .intake-steps__num {
+  background: #3b82f6;
+  color: #fff;
+}
+
+/* Body */
+.intake-wizard__body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 14px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: #fafbfc;
+}
+
+.intake-wizard__body--review {
+  min-height: 420px;
+}
+
+.intake-hint {
+  margin: 0;
+  font-size: 12px;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+.intake-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 12px;
+  align-items: start;
+}
+
+.intake-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 10px 12px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.intake-card--nested {
+  background: #f8fafc;
+}
+
+.intake-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.intake-card__title {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.intake-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.intake-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.intake-field {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex: 1 1 140px;
+  min-width: 0;
+}
+
+.intake-field--narrow {
+  flex: 0 1 150px;
+}
+
+.intake-field > span,
+.intake-conditions__label,
+.intake-subsection__title {
+  font-size: 10px;
+  font-weight: 600;
+  color: #475467;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.intake-field input,
+.intake-field select,
+.intake-conditions__input {
+  padding: 6px 8px;
+  border: 1px solid #d0d5dd;
+  border-radius: 6px;
+  font: inherit;
+  font-size: 12px;
+  color: #1f2937;
+  background: #fff;
+  outline: none;
+  min-width: 0;
+}
+
+.intake-field input:focus,
+.intake-field select:focus,
+.intake-conditions__input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.15);
+}
+
+.intake-check {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #475569;
+  cursor: pointer;
+}
+
+/* Conditions */
+.intake-conditions {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.intake-conditions__chips {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+}
+
+.intake-conditions__input {
+  flex: 1 1 200px;
+}
+
+.intake-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 2px 4px 2px 8px;
+  border-radius: 999px;
+  background: #eef2ff;
+  color: #3730a3;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.intake-chip button {
+  border: none;
+  background: transparent;
+  color: inherit;
+  font-size: 14px;
+  line-height: 1;
+  padding: 0 3px;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.intake-chip button:hover {
+  opacity: 1;
+}
+
+.intake-subsection {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 8px;
+  border-top: 1px dashed #e5e7eb;
+}
+
+/* Buttons */
+.intake-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.intake-add {
+  padding: 8px 12px;
+  border: 1px dashed #cbd5e1;
+  border-radius: 8px;
+  background: #fff;
+  color: #475569;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: center;
+}
+
+.intake-add:hover {
+  border-color: #3b82f6;
+  color: #1d4ed8;
+  background: #eff6ff;
+}
+
+.intake-link {
+  border: none;
+  background: transparent;
+  font: inherit;
+  font-size: 11px;
+  color: #475569;
+  cursor: pointer;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+.intake-link--danger:hover {
+  color: #dc2626;
+  background: #fef2f2;
+}
+
+.intake-warning {
+  padding: 8px 12px;
+  border: 1px solid #fde68a;
+  border-radius: 8px;
+  background: #fffbeb;
+  color: #92400e;
+  font-size: 12px;
+}
+
+/* Review preview */
+.intake-wizard__preview {
+  flex: 1;
+  min-height: 320px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  background: #fff;
+  overflow: hidden;
+  position: relative;
+}
+
+.intake-wizard__preview genogram-canvas {
+  display: block;
+  position: absolute;
+  inset: 0;
+}
+
+/* Footer */
+.intake-wizard__footer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
+  border-top: 1px solid #f0f0f0;
+  background: #fff;
+}
+
+.intake-wizard__spacer {
+  flex: 1;
+}
+
+.intake-btn {
+  height: 34px;
+  padding: 0 14px;
+  border: 1px solid #d0d5dd;
+  border-radius: 8px;
+  background: #fff;
+  color: #344054;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.intake-btn:hover {
+  background: #f8fafc;
+}
+
+.intake-btn--primary {
+  border-color: #3b82f6;
+  background: #3b82f6;
+  color: #fff;
+}
+
+.intake-btn--primary:hover {
+  background: #2563eb;
+}
+
+@media (max-width: 600px) {
+  .intake-wizard__overlay {
+    padding: 0;
+  }
+
+  .intake-wizard {
+    border-radius: 0;
+    height: 100%;
+  }
+
+  .intake-steps__label {
+    display: none;
+  }
+
+  .intake-steps__btn--active .intake-steps__label {
+    display: inline;
+  }
+}
+
+/* Alternate backgrounds so deeper generations stay distinguishable */
+.intake-card--nested .intake-card--nested {
+  background: #fff;
+}
+
+.intake-card--nested .intake-card--nested .intake-card--nested {
+  background: #f8fafc;
+}
+
+.intake-field--wide {
+  flex: 2 1 240px;
+}
+
+/* Aunts & uncles step: one section per side */
+.intake-side {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.intake-side__title {
+  margin: 4px 0 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: #334155;
+}
+
+.intake-linked {
+  margin: 0;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  color: #9a3412;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.intake-linked--hint {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px 12px;
+}
+
+.intake-linked--hint .intake-link {
+  color: #9a3412;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+/* "+ Sara (patient's partner) is their daughter" */
+.intake-add--link {
+  border-color: #fdba74;
+  color: #9a3412;
+  background: #fff7ed;
+}
+
+.intake-add--link:hover {
+  border-color: #ea580c;
+  color: #7c2d12;
+  background: #ffedd5;
+}
+
+/* Edit mode */
+.intake-edit-banner {
+  padding: 10px 12px;
+  border: 1px solid #bfdbfe;
+  border-radius: 8px;
+  background: #eff6ff;
+  color: #1e3a8a;
+  font-size: 12.5px;
+  line-height: 1.5;
+}
+
+.intake-warning--info {
+  border-color: #bfdbfe;
+  background: #eff6ff;
+  color: #1e3a8a;
+}
+
+/* Patient picker */
+.intake-picker {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 8px;
+}
+
+.intake-picker__item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #fff;
+  font: inherit;
+  font-size: 13px;
+  color: #1f2937;
+  cursor: pointer;
+  text-align: left;
+}
+
+.intake-picker__item:hover {
+  border-color: #3b82f6;
+  background: #eff6ff;
+}
+
+.intake-picker__shape {
+  width: 16px;
+  height: 16px;
+  border: 1.6px solid #24323b;
+  flex: none;
+}
+
+.intake-picker__shape--male {
+  border-radius: 3px;
+}
+
+.intake-picker__shape--female {
+  border-radius: 50%;
+}
+
+.intake-picker__shape--unknown {
+  transform: rotate(45deg) scale(0.85);
+}
+
+.intake-picker__name {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.intake-picker__age {
+  color: #64748b;
+  font-size: 12px;
+}
+
+/* Steps, body and footer; the patient picker replaces them */
+.intake-wizard__main {
+  display: contents;
+}
+
+/* Title, tabs and footer stay put; only the step content scrolls */
+.intake-wizard__header,
+.intake-steps,
+.intake-wizard__footer {
+  flex-shrink: 0;
+}
+
+.intake-steps {
+  flex-wrap: nowrap;
+}
+
+.intake-steps__btn {
+  flex-shrink: 0;
+}
+
+@media (max-width: 600px) {
+  .intake-wizard {
+    width: 100%;
+    min-width: 0;
+    height: 100%;
+    min-height: 0;
+  }
+}
+
+/* Dropdowns with longer options: wide enough to read, not the full row */
+.intake-field--medium {
+  flex: 0 1 320px;
+}

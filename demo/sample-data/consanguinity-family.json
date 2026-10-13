@@ -1,0 +1,552 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "title": "Collins family - consanguinity example",
+    "description": "Five generations with close and distant consanguineous unions: uncle-niece, double first cousins, first cousins, first cousins once removed, second cousins, and a suspected relationship."
+  },
+  "persons": [
+    {
+      "id": "joseph",
+      "fullName": "Joseph Collins",
+      "gender": "male",
+      "type": "standard",
+      "isDeceased": true,
+      "isProband": false,
+      "conditions": [
+        {
+          "id": "cond-heart",
+          "name": "Heart disease",
+          "color": "#df4b4b",
+          "quadrant": 1
+        }
+      ],
+      "ageAtDeath": 79
+    },
+    {
+      "id": "anne",
+      "fullName": "Anne Collins",
+      "gender": "female",
+      "type": "standard",
+      "isDeceased": true,
+      "isProband": false,
+      "conditions": [],
+      "ageAtDeath": 84
+    },
+    {
+      "id": "susan",
+      "fullName": "Susan Collins",
+      "gender": "female",
+      "type": "standard",
+      "isDeceased": false,
+      "isProband": false,
+      "conditions": [],
+      "age": 74,
+      "notes": "Henry's second wife"
+    },
+    {
+      "id": "henry",
+      "fullName": "Henry Collins",
+      "gender": "male",
+      "type": "standard",
+      "isDeceased": true,
+      "isProband": false,
+      "conditions": [
+        {
+          "id": "cond-stroke",
+          "name": "Stroke",
+          "color": "#4a86d9",
+          "quadrant": 2
+        }
+      ],
+      "ageAtDeath": 70
+    },
+    {
+      "id": "mary",
+      "fullName": "Mary Collins",
+      "gender": "female",
+      "type": "standard",
+      "isDeceased": true,
+      "isProband": false,
+      "conditions": [],
+      "ageAtDeath": 75
+    },
+    {
+      "id": "peter",
+      "fullName": "Peter Walsh",
+      "gender": "male",
+      "type": "standard",
+      "isDeceased": true,
+      "isProband": false,
+      "conditions": [
+        {
+          "id": "cond-heart",
+          "name": "Heart disease",
+          "color": "#df4b4b",
+          "quadrant": 1
+        }
+      ],
+      "ageAtDeath": 80
+    },
+    {
+      "id": "frances",
+      "fullName": "Frances Walsh",
+      "gender": "female",
+      "type": "standard",
+      "isDeceased": false,
+      "isProband": false,
+      "conditions": [
+        {
+          "id": "cond-diabetes",
+          "name": "Type 2 diabetes",
+          "color": "#e99a2c",
+          "quadrant": 4
+        }
+      ],
+      "age": 78
+    },
+    {
+      "id": "oliver",
+      "fullName": "Oliver Collins",
+      "gender": "male",
+      "type": "standard",
+      "isDeceased": false,
+      "isProband": false,
+      "conditions": [],
+      "age": 75
+    },
+    {
+      "id": "grace",
+      "fullName": "Grace Collins",
+      "gender": "female",
+      "type": "standard",
+      "isDeceased": false,
+      "isProband": false,
+      "conditions": [],
+      "age": 72
+    },
+    {
+      "id": "francis",
+      "fullName": "Francis Collins",
+      "gender": "male",
+      "type": "standard",
+      "isDeceased": false,
+      "isProband": false,
+      "conditions": [],
+      "age": 46,
+      "notes": "Half-brother of Matthew and Natalie (same father, Henry)"
+    },
+    {
+      "id": "nora",
+      "fullName": "Nora Collins",
+      "gender": "female",
+      "type": "standard",
+      "isDeceased": false,
+      "isProband": false,
+      "conditions": [],
+      "age": 44
+    },
+    {
+      "id": "matthew",
+      "fullName": "Matthew Collins",
+      "gender": "male",
+      "type": "standard",
+      "isDeceased": false,
+      "isProband": false,
+      "conditions": [
+        {
+          "id": "cond-diabetes",
+          "name": "Type 2 diabetes",
+          "color": "#e99a2c",
+          "quadrant": 4
+        },
+        {
+          "id": "cond-thal-trait",
+          "name": "Thalassaemia trait (carrier)",
+          "color": "#c39bd3",
+          "quadrant": 3
+        }
+      ],
+      "age": 56
+    },
+    {
+      "id": "natalie",
+      "fullName": "Natalie Walsh",
+      "gender": "female",
+      "type": "standard",
+      "isDeceased": false,
+      "isProband": false,
+      "conditions": [
+        {
+          "id": "cond-thal-trait",
+          "name": "Thalassaemia trait (carrier)",
+          "color": "#c39bd3",
+          "quadrant": 3
+        }
+      ],
+      "age": 52
+    },
+    {
+      "id": "lucy",
+      "fullName": "Lucy Collins",
+      "gender": "female",
+      "type": "standard",
+      "isDeceased": false,
+      "isProband": false,
+      "conditions": [
+        {
+          "id": "cond-thal-trait",
+          "name": "Thalassaemia trait (carrier)",
+          "color": "#c39bd3",
+          "quadrant": 3
+        }
+      ],
+      "age": 53
+    },
+    {
+      "id": "simon",
+      "fullName": "Simon Walsh",
+      "gender": "male",
+      "type": "standard",
+      "isDeceased": false,
+      "isProband": false,
+      "conditions": [
+        {
+          "id": "cond-thal-trait",
+          "name": "Thalassaemia trait (carrier)",
+          "color": "#c39bd3",
+          "quadrant": 3
+        }
+      ],
+      "age": 55
+    },
+    {
+      "id": "luke",
+      "fullName": "Luke Walsh",
+      "gender": "male",
+      "type": "standard",
+      "isDeceased": false,
+      "isProband": false,
+      "conditions": [],
+      "age": 48
+    },
+    {
+      "id": "thomas",
+      "fullName": "Thomas Collins",
+      "gender": "male",
+      "type": "standard",
+      "isDeceased": false,
+      "isProband": false,
+      "conditions": [],
+      "age": 50
+    },
+    {
+      "id": "rachel",
+      "fullName": "Rachel Collins",
+      "gender": "female",
+      "type": "standard",
+      "isDeceased": false,
+      "isProband": false,
+      "conditions": [],
+      "age": 47
+    },
+    {
+      "id": "james",
+      "fullName": "James Collins",
+      "gender": "male",
+      "type": "standard",
+      "isDeceased": false,
+      "isProband": false,
+      "conditions": [],
+      "age": 44
+    },
+    {
+      "id": "lily",
+      "fullName": "Lily Collins",
+      "gender": "female",
+      "type": "standard",
+      "isDeceased": false,
+      "isProband": false,
+      "conditions": [],
+      "age": 20,
+      "notes": "Half first cousin of Andrew (her father Francis is Matthew's half-brother)"
+    },
+    {
+      "id": "andrew",
+      "fullName": "Andrew Collins",
+      "gender": "male",
+      "type": "standard",
+      "isDeceased": false,
+      "isProband": true,
+      "conditions": [
+        {
+          "id": "cond-thal-trait",
+          "name": "Thalassaemia trait (carrier)",
+          "color": "#c39bd3",
+          "quadrant": 3
+        }
+      ],
+      "age": 32,
+      "notes": "Patient. Referred for genetic counselling after son diagnosed with thalassaemia major."
+    },
+    {
+      "id": "hannah",
+      "fullName": "Hannah Walsh",
+      "gender": "female",
+      "type": "standard",
+      "isDeceased": false,
+      "isProband": false,
+      "conditions": [],
+      "age": 29
+    },
+    {
+      "id": "ruth",
+      "fullName": "Ruth Collins",
+      "gender": "female",
+      "type": "standard",
+      "isDeceased": false,
+      "isProband": false,
+      "conditions": [],
+      "age": 27
+    },
+    {
+      "id": "benjamin",
+      "fullName": "Benjamin Collins",
+      "gender": "male",
+      "type": "standard",
+      "isDeceased": false,
+      "isProband": false,
+      "conditions": [],
+      "age": 25
+    },
+    {
+      "id": "sarah",
+      "fullName": "Sarah Collins",
+      "gender": "female",
+      "type": "standard",
+      "isDeceased": false,
+      "isProband": false,
+      "conditions": [
+        {
+          "id": "cond-thal-trait",
+          "name": "Thalassaemia trait (carrier)",
+          "color": "#c39bd3",
+          "quadrant": 3
+        }
+      ],
+      "age": 30
+    },
+    {
+      "id": "esther",
+      "fullName": "Esther Collins",
+      "gender": "female",
+      "type": "standard",
+      "isDeceased": false,
+      "isProband": false,
+      "conditions": [],
+      "age": 24
+    },
+    {
+      "id": "adam",
+      "fullName": "Adam Collins",
+      "gender": "male",
+      "type": "standard",
+      "isDeceased": false,
+      "isProband": false,
+      "conditions": [
+        {
+          "id": "cond-thal-major",
+          "name": "Thalassaemia major",
+          "color": "#8e24aa",
+          "quadrant": 3,
+          "description": "Autosomal recessive; both parents are carriers"
+        }
+      ],
+      "age": 6
+    },
+    {
+      "id": "mia",
+      "fullName": "Mia Collins",
+      "gender": "female",
+      "type": "standard",
+      "isDeceased": false,
+      "isProband": false,
+      "conditions": [
+        {
+          "id": "cond-thal-trait",
+          "name": "Thalassaemia trait (carrier)",
+          "color": "#c39bd3",
+          "quadrant": 3
+        }
+      ],
+      "age": 3
+    },
+    {
+      "id": "daniel",
+      "fullName": "Daniel Walsh",
+      "gender": "male",
+      "type": "standard",
+      "isDeceased": false,
+      "isProband": false,
+      "conditions": [
+        {
+          "id": "cond-hearing",
+          "name": "Hearing loss",
+          "color": "#2e9c8c",
+          "quadrant": 2
+        }
+      ],
+      "age": 4
+    }
+  ],
+  "relationships": [
+    {
+      "id": "rel-1",
+      "type": "marriage",
+      "person1Id": "joseph",
+      "person2Id": "anne",
+      "childrenIds": [
+        "henry",
+        "frances",
+        "oliver"
+      ],
+      "consanguinity": "none"
+    },
+    {
+      "id": "rel-2",
+      "type": "marriage",
+      "person1Id": "henry",
+      "person2Id": "susan",
+      "childrenIds": [
+        "francis"
+      ],
+      "consanguinity": "none"
+    },
+    {
+      "id": "rel-3",
+      "type": "marriage",
+      "person1Id": "henry",
+      "person2Id": "mary",
+      "childrenIds": [
+        "matthew",
+        "natalie"
+      ],
+      "consanguinity": "none"
+    },
+    {
+      "id": "rel-4",
+      "type": "marriage",
+      "person1Id": "peter",
+      "person2Id": "frances",
+      "childrenIds": [
+        "simon",
+        "lucy",
+        "luke"
+      ],
+      "consanguinity": "none"
+    },
+    {
+      "id": "rel-5",
+      "type": "marriage",
+      "person1Id": "oliver",
+      "person2Id": "grace",
+      "childrenIds": [
+        "thomas",
+        "james"
+      ],
+      "consanguinity": "none"
+    },
+    {
+      "id": "rel-6",
+      "type": "marriage",
+      "person1Id": "francis",
+      "person2Id": "nora",
+      "childrenIds": [
+        "lily"
+      ],
+      "consanguinity": "none",
+      "consanguinityRelation": "unknown",
+      "notes": "Families come from the same village; a blood relationship is suspected but not confirmed."
+    },
+    {
+      "id": "rel-7",
+      "type": "marriage",
+      "person1Id": "matthew",
+      "person2Id": "lucy",
+      "childrenIds": [
+        "andrew",
+        "hannah",
+        "ruth",
+        "benjamin"
+      ],
+      "consanguinity": "third-degree",
+      "consanguinityRelation": "first-cousins",
+      "notes": "First cousins: Henry (his father) and Frances (her mother) are siblings."
+    },
+    {
+      "id": "rel-8",
+      "type": "marriage",
+      "person1Id": "simon",
+      "person2Id": "natalie",
+      "childrenIds": [
+        "sarah"
+      ],
+      "consanguinity": "third-degree",
+      "consanguinityRelation": "first-cousins",
+      "notes": "First cousins: Frances (his mother) and Henry (her father) are siblings."
+    },
+    {
+      "id": "rel-9",
+      "type": "marriage",
+      "person1Id": "thomas",
+      "person2Id": "rachel",
+      "childrenIds": [
+        "esther"
+      ],
+      "consanguinity": "none"
+    },
+    {
+      "id": "rel-10",
+      "type": "marriage",
+      "person1Id": "andrew",
+      "person2Id": "sarah",
+      "childrenIds": [
+        "adam",
+        "mia"
+      ],
+      "consanguinity": "second-degree",
+      "notes": "Double first cousins: his father Matthew and her mother Natalie are siblings, and his mother Lucy and her father Simon are siblings. Both sets of parents are also first cousins, so they share about a quarter of their DNA."
+    },
+    {
+      "id": "rel-11",
+      "type": "marriage",
+      "person1Id": "luke",
+      "person2Id": "hannah",
+      "childrenIds": [
+        "daniel"
+      ],
+      "consanguinity": "second-degree",
+      "consanguinityRelation": "uncle-niece",
+      "notes": "Uncle and niece: Luke is the brother of Hannah's mother Lucy."
+    },
+    {
+      "id": "rel-12",
+      "type": "marriage",
+      "person1Id": "james",
+      "person2Id": "ruth",
+      "childrenIds": [],
+      "consanguinity": "distant",
+      "consanguinityRelation": "first-cousins-once-removed",
+      "notes": "First cousins once removed: James is a first cousin of Ruth's father Matthew."
+    },
+    {
+      "id": "rel-13",
+      "type": "marriage",
+      "person1Id": "benjamin",
+      "person2Id": "esther",
+      "childrenIds": [],
+      "consanguinity": "distant",
+      "consanguinityRelation": "second-cousins",
+      "notes": "Second cousins: their grandparents Henry and Oliver are brothers."
+    }
+  ]
+}

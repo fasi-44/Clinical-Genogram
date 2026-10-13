@@ -1,0 +1,13 @@
+.person-node {
+  cursor: pointer;
+}
+.person-node:hover {
+  filter: brightness(0.95);
+}
+.person-node--selected {
+  filter: drop-shadow(0 0 4px rgba(33, 150, 243, 0.5));
+}
+.person-label {
+  pointer-events: none;
+  user-select: none;
+}

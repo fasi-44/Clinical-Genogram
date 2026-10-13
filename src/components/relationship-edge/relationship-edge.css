@@ -1,0 +1,6 @@
+.relationship-edge {
+  cursor: pointer;
+}
+.relationship-edge--selected {
+  filter: drop-shadow(0 0 3px rgba(33, 150, 243, 0.6));
+}

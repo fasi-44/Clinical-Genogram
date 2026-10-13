@@ -1,0 +1,97 @@
+.relationship-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px 0;
+  font-family: var(--genogram-font-family);
+}
+
+.relationship-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.relationship-form__label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #475467;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.relationship-form__input,
+.relationship-form__select,
+.relationship-form__textarea {
+  padding: 7px 10px;
+  border: 1px solid #d0d5dd;
+  border-radius: 6px;
+  font-size: 13px;
+  font-family: var(--genogram-font-family);
+  color: #1f2937;
+  background-color: #fff;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.relationship-form__input:focus,
+.relationship-form__select:focus,
+.relationship-form__textarea:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.15);
+}
+
+.relationship-form__textarea {
+  resize: vertical;
+  min-height: 60px;
+}
+
+.relationship-form__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.relationship-form__save-btn {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  background-color: #3b82f6;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: var(--genogram-font-family);
+  cursor: pointer;
+  transition: background-color 0.15s ease, opacity 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+}
+
+.relationship-form__save-btn:hover:not(:disabled) {
+  background-color: #2563eb;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.relationship-form__save-btn:disabled {
+  opacity: 0.45;
+  cursor: default;
+  box-shadow: none;
+}
+
+.relationship-form__delete-btn {
+  padding: 8px 12px;
+  border: 1px solid #fca5a5;
+  border-radius: 6px;
+  background-color: transparent;
+  color: #dc2626;
+  font-size: 13px;
+  font-family: var(--genogram-font-family);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.relationship-form__delete-btn:hover {
+  background-color: #dc2626;
+  border-color: #dc2626;
+  color: #ffffff;
+}
